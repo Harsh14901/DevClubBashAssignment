@@ -1,6 +1,11 @@
 #!/bin/bash
 #Script to return Full name from username
 
+if [ ! -r $1 ]
+then
+    exit -1
+fi
+
 egrep -n "^.*:x:[[:digit:]]*:[[:digit:]]*:.*:.*:.*$" $1 > out.txt
 egrep -n ".*" $1 > out_sam.txt
 
